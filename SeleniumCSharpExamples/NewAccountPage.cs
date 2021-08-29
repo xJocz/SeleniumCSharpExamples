@@ -16,6 +16,11 @@ namespace SeleniumCSharpExamples
             dsl.click("id", "id_gender1");
         }
 
+        public string getUrl()
+        {
+            return dsl.getUrl();
+        }
+
         public void setCustomerFirstName(string name)
         {
             dsl.setText("customer_firstname", name);

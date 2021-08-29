@@ -18,6 +18,11 @@ namespace SeleniumCSharpExamples
             driver.Navigate().GoToUrl(url);
         }
 
+        public string getUrl()
+        {
+            return driver.Url;
+        }
+
         public void click(string type, string selector)
         {
             if (type == "xpath")
@@ -36,6 +41,12 @@ namespace SeleniumCSharpExamples
             return Attr;
         }
 
+        public string getTextByClassName(string selector)
+        {
+            string result = driver.FindElement(By.ClassName(selector)).Text;
+            return result;
+        }
+
         public IWebElement getElement(String selector)
         {
             IWebElement element = driver.FindElement(By.Id(selector));
@@ -44,6 +55,7 @@ namespace SeleniumCSharpExamples
 
         public void setText(String selector, String value)
         {
+            driver.FindElement(By.Id(selector)).Clear();
             driver.FindElement(By.Id(selector)).SendKeys(value);
         }
 

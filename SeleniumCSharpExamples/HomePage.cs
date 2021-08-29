@@ -30,5 +30,10 @@ namespace SeleniumCSharpExamples
         {
             dsl.click("id", "SubmitCreate");
         }
+
+        public void openContactUs()
+        {
+            dsl.click("id", "contact-link");
+        }
     }
 }

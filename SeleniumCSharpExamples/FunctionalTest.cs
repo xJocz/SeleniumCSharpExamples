@@ -26,16 +26,16 @@ namespace SeleniumCSharpExamples
         [Test]
         public void GoToSite()
         {
-            dsl.navigate(siteUrl);
+            homePage.navigate(siteUrl);
             Assert.AreEqual(siteUrl, driver.Url);
         }
 
         [Test]
         public void CreateNewAccountToFail()
         {
-            dsl.navigate(siteUrl);
-            dsl.click("xpath", "//a[@class='login']");
-            dsl.click("id", "SubmitCreate");
+            homePage.navigate(siteUrl);
+            homePage.clickSignIn();
+            homePage.openNewAccountForm();
             Assert.IsNotNull(dsl.getElement("create_account_error"));
         }
 
@@ -71,7 +71,7 @@ namespace SeleniumCSharpExamples
         [TearDown]
         public void TearDown()
         {
-            //driver.Quit();
+            driver.Quit();
         }
     }
 }

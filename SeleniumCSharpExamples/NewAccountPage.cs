@@ -6,9 +6,9 @@ namespace SeleniumCSharpExamples
     {
         private DSL dsl;
 
-        public NewAccountPage(IWebDriver driver)
+        public NewAccountPage()
         {
-            this.dsl = new DSL(driver);
+            this.dsl = new DSL();
         }
 
         public void setGenderMale()

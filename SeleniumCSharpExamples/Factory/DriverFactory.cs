@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using System;
 
 namespace SeleniumCSharpExamples.Factory
 {
@@ -17,6 +18,7 @@ namespace SeleniumCSharpExamples.Factory
             if (driver == null)
             {
                 driver = new ChromeDriver();
+                driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
             }
             return driver;
         }

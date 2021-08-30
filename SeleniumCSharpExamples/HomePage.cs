@@ -6,9 +6,14 @@ namespace SeleniumCSharpExamples
     {
         private DSL dsl;
 
-        public HomePage(IWebDriver driver)
+        public HomePage()
         {
-            dsl = new DSL(driver);
+            dsl = new DSL();
+        }
+
+        public string getUrl()
+        {
+            return dsl.getUrl();
         }
 
         public void navigate(string url)
@@ -34,6 +39,11 @@ namespace SeleniumCSharpExamples
         public void openContactUs()
         {
             dsl.click("id", "contact-link");
+        }
+
+        public IWebElement getElement()
+        {
+            return dsl.getElement("create_account_error");
         }
     }
 }

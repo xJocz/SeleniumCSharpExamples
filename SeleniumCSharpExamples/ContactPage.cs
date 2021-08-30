@@ -6,9 +6,9 @@ namespace SeleniumCSharpExamples
     {
         private DSL dsl;
 
-        public ContactPage(IWebDriver driver)
+        public ContactPage()
         {
-            dsl = new DSL(driver);
+            dsl = new DSL();
         }
 
         public void selectSubject(string value)

@@ -1,14 +1,11 @@
 using NUnit.Framework;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
+using SeleniumCSharpExamples.Factory;
 using System;
 
 namespace SeleniumCSharpExamples
 {
     public class Tests
     {
-        private IWebDriver driver;
-        private DSL dsl;
         private HomePage homePage;
         private NewAccountPage newAccountPage;
         private ContactPage contactPage;
@@ -17,19 +14,17 @@ namespace SeleniumCSharpExamples
         [SetUp]
         public void Setup()
         {
-            driver = new ChromeDriver();
-            dsl = new DSL(driver);
-            homePage = new HomePage(driver);
-            newAccountPage = new NewAccountPage(driver);
-            contactPage = new ContactPage(driver);
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+            DriverFactory.getDriver();
+            homePage = new HomePage();
+            newAccountPage = new NewAccountPage();
+            contactPage = new ContactPage();
         }
 
         [Test]
         public void GoToSite()
         {
             homePage.navigate(siteUrl);
-            Assert.AreEqual(siteUrl, driver.Url);
+            Assert.AreEqual(siteUrl, homePage.getUrl());
         }
 
         [Test]
@@ -38,7 +33,7 @@ namespace SeleniumCSharpExamples
             homePage.navigate(siteUrl);
             homePage.clickSignIn();
             homePage.openNewAccountForm();
-            Assert.IsNotNull(dsl.getElement("create_account_error"));
+            Assert.IsNotNull(homePage.getElement());
         }
 
         [Test]
@@ -101,7 +96,7 @@ namespace SeleniumCSharpExamples
         [TearDown]
         public void TearDown()
         {
-            driver.Quit();
+            DriverFactory.killDriver();
         }
     }
 }

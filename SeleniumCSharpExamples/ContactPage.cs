@@ -16,34 +16,34 @@ namespace SeleniumCSharpExamples
             dsl.selectOptionByText("id_contact", value);
         }
 
-        public void setEmail(string email)
+        public void SetEmail(string email)
         {
-            dsl.setText("email", email);
+            dsl.SetText("email", email);
         }
 
-        public void setOrderNumber(string order)
+        public void SetOrderNumber(string order)
         {
-            dsl.setText("id_order", order);
+            dsl.SetText("id_order", order);
         }
 
-        public void setMessage(string message)
+        public void SetMessage(string message)
         {
-            dsl.setText("message", message);
+            dsl.SetText("message", message);
         }
 
-        public void sendMessage()
+        public void SendMessage()
         {
-            dsl.click("id", "submitMessage");
+            dsl.Click("id", "submitMessage");
         }
 
-        public string getSuccessMessage()
+        public string GetSuccessMessage()
         {
-            return dsl.getTextByClassName("alert-success");
+            return dsl.GetTextByClassName("alert-success");
         }
 
-        public string getErrorMessage()
+        public string GetErrorMessage()
         {
-            return dsl.getTextByClassName("alert-danger");
+            return dsl.GetTextByClassName("alert-danger");
         }
     }
 }

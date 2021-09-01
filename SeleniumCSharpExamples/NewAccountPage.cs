@@ -9,29 +9,29 @@
             this.dsl = new DSL();
         }
 
-        public void setGenderMale()
+        public void SetGenderMale()
         {
-            dsl.click("id", "id_gender1");
+            dsl.Click("id", "id_gender1");
         }
 
-        public string getUrl()
+        public string GetUrl()
         {
-            return dsl.getUrl();
+            return dsl.GetUrl();
         }
 
-        public void setCustomerFirstName(string name)
+        public void SetCustomerFirstName(string name)
         {
-            dsl.setText("customer_firstname", name);
+            dsl.SetText("customer_firstname", name);
         }
 
-        public void setCustomerLastName(string name)
+        public void SetCustomerLastName(string name)
         {
-            dsl.setText("customer_lastname", name);
+            dsl.SetText("customer_lastname", name);
         }
 
-        public void setPassword(string password)
+        public void SetPassword(string password)
         {
-            dsl.setText("passwd", password);
+            dsl.SetText("passwd", password);
         }
 
         public void selectDay(string day)
@@ -49,29 +49,29 @@
             dsl.selectOptionByValue("years", year);
         }
 
-        public void setAddressFirstName(string adressFirstName)
+        public void SetAddressFirstName(string adressFirstName)
         {
-            dsl.setText("firstname", adressFirstName);
+            dsl.SetText("firstname", adressFirstName);
         }
 
-        public void setAddressLastName(string addressLastName)
+        public void SetAddressLastName(string addressLastName)
         {
-            dsl.setText("lastname", addressLastName);
+            dsl.SetText("lastname", addressLastName);
         }
 
-        public void setCompanyName(string companyName)
+        public void SetCompanyName(string companyName)
         {
-            dsl.setText("company", companyName);
+            dsl.SetText("company", companyName);
         }
 
-        public void setAddress(string address)
+        public void SetAddress(string address)
         {
-            dsl.setText("address1", address);
+            dsl.SetText("address1", address);
         }
 
-        public void setCity(string city)
+        public void SetCity(string city)
         {
-            dsl.setText("city", city);
+            dsl.SetText("city", city);
         }
 
         public void selectState(string state)
@@ -79,29 +79,29 @@
             dsl.selectOptionByText("id_state", state);
         }
 
-        public void setPostalCode(string postalCode)
+        public void SetPostalCode(string postalCode)
         {
-            dsl.setText("postcode", postalCode);
+            dsl.SetText("postcode", postalCode);
         }
 
-        public void setAdditionalInfo(string text)
+        public void SetAdditionalInfo(string text)
         {
-            dsl.setText("other", text);
+            dsl.SetText("other", text);
         }
 
-        public void setPhone(string phone)
+        public void SetPhone(string phone)
         {
-            dsl.setText("phone", phone);
+            dsl.SetText("phone", phone);
         }
 
-        public void setMobilePhone(string mobilePhone)
+        public void SetMobilePhone(string mobilePhone)
         {
-            dsl.setText("phone_mobile", mobilePhone);
+            dsl.SetText("phone_mobile", mobilePhone);
         }
 
-        public void submitNewAccount()
+        public void SubmitNewAccount()
         {
-            dsl.click("id", "submitAccount");
+            dsl.Click("id", "submitAccount");
         }
 
     }

@@ -18,7 +18,7 @@ namespace SeleniumCSharpExamples.Factory
             if (driver == null)
             {
                 driver = new ChromeDriver();
-                driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+                driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             }
             return driver;
         }

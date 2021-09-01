@@ -11,60 +11,60 @@ namespace SeleniumCSharpExamples
             dsl = new DSL();
         }
 
-        public string getUrl()
+        public string GetUrl()
         {
-            return dsl.getUrl();
+            return dsl.GetUrl();
         }
 
-        public void navigate(string url)
+        public void Navigate(string url)
         {
-            dsl.navigate(url);
+            dsl.Navigate(url);
         }
 
-        public void clickSignIn()
+        public void ClickSignIn()
         {
-            dsl.click("xpath", "//a[@class='login']");
+            dsl.Click("xpath", "//a[@class='login']");
         }
 
-        public void setNewEmailAccount(string email)
+        public void SetNewEmailAccount(string email)
         {
-            dsl.setText("email_create", email);
+            dsl.SetText("email_create", email);
         }
 
-        public void openNewAccountForm()
+        public void OpenNewAccountForm()
         {
-            dsl.click("id", "SubmitCreate");
+            dsl.Click("id", "SubmitCreate");
         }
 
-        public void openContactUs()
+        public void OpenContactUs()
         {
-            dsl.click("id", "contact-link");
+            dsl.Click("id", "contact-link");
         }
 
-        public IWebElement getElement()
+        public IWebElement GetElement()
         {
-            return dsl.getElement("create_account_error");
+            return dsl.GetElement("create_account_error");
         }
 
-        public void setNewsletterInput(string email)
+        public void SetNewsletterInput(string email)
         {
-            dsl.setText("newsletter-input", email);
+            dsl.SetText("newsletter-input", email);
         }
 
-        public void submitNewsletter()
+        public void SubmitNewsletter()
         {
-            dsl.click("name", "submitNewsletter");
+            dsl.Click("name", "submitNewsletter");
         }
 
-        public string getNewsletterResult(string type)
+        public string GetNewsletterResult(string type)
         {
             if (type == "success")
             {
-                return dsl.getTextByClassName("alert-success");
+                return dsl.GetTextByClassName("alert-success");
             } 
             else
             {
-                return dsl.getTextByClassName("alert-danger");
+                return dsl.GetTextByClassName("alert-danger");
             }
         }
     }

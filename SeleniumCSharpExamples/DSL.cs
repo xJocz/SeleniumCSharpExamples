@@ -6,17 +6,17 @@ namespace SeleniumCSharpExamples
 {
     class DSL
     {
-        public void navigate(string url)
+        public void Navigate(string url)
         {
             DriverFactory.getDriver().Navigate().GoToUrl(url);
         }
 
-        public string getUrl()
+        public string GetUrl()
         {
             return DriverFactory.getDriver().Url;
         }
 
-        public void click(string type, string selector)
+        public void Click(string type, string selector)
         {
             if (type == "xpath")
             {
@@ -32,25 +32,25 @@ namespace SeleniumCSharpExamples
             }
         }
 
-        public string getText(string selector)
+        public string GetText(string selector)
         {
             string Attr = DriverFactory.getDriver().FindElement(By.Id(selector)).Text;
             return Attr;
         }
 
-        public string getTextByClassName(string selector)
+        public string GetTextByClassName(string selector)
         {
             string result = DriverFactory.getDriver().FindElement(By.ClassName(selector)).Text;
             return result;
         }
 
-        public IWebElement getElement(string selector)
+        public IWebElement GetElement(string selector)
         {
             IWebElement element = DriverFactory.getDriver().FindElement(By.Id(selector));
             return element;
         }
 
-        public void setText(string selector, string value)
+        public void SetText(string selector, string value)
         {
             DriverFactory.getDriver().FindElement(By.Id(selector)).Clear();
             DriverFactory.getDriver().FindElement(By.Id(selector)).SendKeys(value);

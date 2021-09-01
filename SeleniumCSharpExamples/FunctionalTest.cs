@@ -24,81 +24,81 @@ namespace SeleniumCSharpExamples
         [Test]
         public void GoToSite()
         {
-            homePage.navigate(siteUrl);
-            Assert.AreEqual(siteUrl, homePage.getUrl());
+            homePage.Navigate(siteUrl);
+            Assert.AreEqual(siteUrl, homePage.GetUrl());
         }
 
         [Test]
         public void CreateNewAccountToFail()
         {
-            homePage.navigate(siteUrl);
-            homePage.clickSignIn();
-            homePage.openNewAccountForm();
-            Assert.IsNotNull(homePage.getElement());
+            homePage.Navigate(siteUrl);
+            homePage.ClickSignIn();
+            homePage.OpenNewAccountForm();
+            Assert.IsNotNull(homePage.GetElement());
         }
 
         [Test]
         public void CreateNewAccountToSuccess()
         {
             string urlNewAccountCreated = "http://automationpractice.com/index.php?controller=my-account";
-            homePage.navigate(siteUrl);
-            homePage.clickSignIn();
-            homePage.setNewEmailAccount("mail" + randomNumber + "@test.com");
-            homePage.openNewAccountForm();
-            newAccountPage.setGenderMale();
-            newAccountPage.setCustomerFirstName("firstName");
-            newAccountPage.setCustomerLastName("lastName");
-            newAccountPage.setPassword("Qwer!234");
+            homePage.Navigate(siteUrl);
+            homePage.ClickSignIn();
+            homePage.SetNewEmailAccount("mail" + randomNumber + "@test.com");
+            homePage.OpenNewAccountForm();
+            newAccountPage.SetGenderMale();
+            newAccountPage.SetCustomerFirstName("firstName");
+            newAccountPage.SetCustomerLastName("lastName");
+            newAccountPage.SetPassword("Qwer!234");
             newAccountPage.selectDay("4");
             newAccountPage.selectMonth("6");
             newAccountPage.selectYear("1990");
-            newAccountPage.setAddressFirstName("Address first name");
-            newAccountPage.setAddressLastName("Address last name");
-            newAccountPage.setCompanyName("Easy");
-            newAccountPage.setAddress("Kansas Avenue 1860");
-            newAccountPage.setCity("Alabama");
+            newAccountPage.SetAddressFirstName("Address first name");
+            newAccountPage.SetAddressLastName("Address last name");
+            newAccountPage.SetCompanyName("Easy");
+            newAccountPage.SetAddress("Kansas Avenue 1860");
+            newAccountPage.SetCity("Alabama");
             newAccountPage.selectState("Kansas");
-            newAccountPage.setPostalCode("03355");
-            newAccountPage.setAdditionalInfo("no additional info for this example");
-            newAccountPage.setPhone("+551144101234");
-            newAccountPage.setMobilePhone("+5511974391234");
-            newAccountPage.submitNewAccount();
-            Assert.AreEqual(urlNewAccountCreated, newAccountPage.getUrl());
+            newAccountPage.SetPostalCode("03355");
+            newAccountPage.SetAdditionalInfo("no additional info for this example");
+            newAccountPage.SetPhone("+551144101234");
+            newAccountPage.SetMobilePhone("+5511974391234");
+            newAccountPage.SubmitNewAccount();
+            Assert.AreEqual(urlNewAccountCreated, newAccountPage.GetUrl());
         }
 
         [Test]
         public void SendMessageToFail()
         { 
-            homePage.navigate(siteUrl);
-            homePage.openContactUs();
+            homePage.Navigate(siteUrl);
+            homePage.OpenContactUs();
             contactPage.selectSubject("Webmaster");
-            contactPage.setEmail("mail" + randomNumber + "@test.com");
-            contactPage.setOrderNumber(randomNumber.ToString());
-            contactPage.sendMessage();
-            Assert.AreEqual("There is 1 error\r\nThe message cannot be blank.", contactPage.getErrorMessage()); 
+            contactPage.SetEmail("mail" + randomNumber + "@test.com");
+            contactPage.SetOrderNumber(randomNumber.ToString());
+            contactPage.SendMessage();
+            Assert.AreEqual("There is 1 error\r\nThe message cannot be blank.", contactPage.GetErrorMessage()); 
         }
 
         [Test]
         public void SendMessageToSuccess()
         {
-            homePage.navigate(siteUrl);
-            homePage.openContactUs();
+            homePage.Navigate(siteUrl);
+            homePage.OpenContactUs();
             contactPage.selectSubject("Webmaster");
-            contactPage.setEmail("mail" + randomNumber + "@test.com");
-            contactPage.setOrderNumber(randomNumber.ToString());
-            contactPage.setMessage("This is a simple message to dev teams about this test");
-            contactPage.sendMessage();
-            Assert.AreEqual("Your message has been successfully sent to our team.", contactPage.getSuccessMessage());
+            contactPage.SetEmail("mail" + randomNumber + "@test.com");
+            contactPage.SetOrderNumber(randomNumber.ToString());
+            contactPage.SetMessage("This is a simple message to dev teams about this test");
+            contactPage.SendMessage();
+            Assert.AreEqual("Your message has been successfully sent to our team.", contactPage.GetSuccessMessage());
         }
 
         [Test]
         public void SubscribeToNewsletterToFail()
         {
             string resultSubscribe = "Newsletter : Invalid email address.";
-            homePage.navigate(siteUrl);
-            homePage.setNewsletterInput("mail" + randomNumber);
-            homePage.submitNewsletter();
-            Assert.AreEqual(homePage.getNewsletterResult("error"), resultSubscribe);
+            homePage.Navigate(siteUrl);
+            homePage.SetNewsletterInput("mail" + randomNumber);
+            homePage.SubmitNewsletter();
+            Assert.AreEqual(homePage.GetNewsletterResult("error"), resultSubscribe);
 
         }
 
@@ -107,20 +107,20 @@ namespace SeleniumCSharpExamples
         {
             string resultSubscribe = "Newsletter : This email address is already registered.";
             string repeatedEmail = "test@test.br";
-            homePage.navigate(siteUrl);
-            homePage.setNewsletterInput(repeatedEmail);
-            homePage.submitNewsletter();
-            Assert.AreEqual(homePage.getNewsletterResult("error"), resultSubscribe);
+            homePage.Navigate(siteUrl);
+            homePage.SetNewsletterInput(repeatedEmail);
+            homePage.SubmitNewsletter();
+            Assert.AreEqual(homePage.GetNewsletterResult("error"), resultSubscribe);
         }
 
         [Test]
         public void SubscribeToNewsletterToSuccess()
         {
             string resultSubscribe = "Newsletter : You have successfully subscribed to this newsletter.";
-            homePage.navigate(siteUrl);
-            homePage.setNewsletterInput("mail" + randomNumber + "@test.br");
-            homePage.submitNewsletter();
-            Assert.AreEqual(homePage.getNewsletterResult("success"), resultSubscribe);
+            homePage.Navigate(siteUrl);
+            homePage.SetNewsletterInput("mail" + randomNumber + "@test.br");
+            homePage.SubmitNewsletter();
+            Assert.AreEqual(homePage.GetNewsletterResult("success"), resultSubscribe);
         }
 
 

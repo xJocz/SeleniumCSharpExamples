@@ -1,6 +1,4 @@
-﻿using OpenQA.Selenium;
-
-namespace SeleniumCSharpExamples
+﻿namespace SeleniumCSharpExamples
 {
     class NewAccountPage
     {

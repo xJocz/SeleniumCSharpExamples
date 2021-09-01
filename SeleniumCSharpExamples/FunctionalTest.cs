@@ -10,6 +10,7 @@ namespace SeleniumCSharpExamples
         private NewAccountPage newAccountPage;
         private ContactPage contactPage;
         private string siteUrl = "http://automationpractice.com/index.php";
+        int randomNumber = new Random().Next(10000, 99999);
 
         [SetUp]
         public void Setup()
@@ -39,7 +40,6 @@ namespace SeleniumCSharpExamples
         [Test]
         public void CreateNewAccountToSuccess()
         {
-            int randomNumber = new Random().Next(1000, 9999);
             string urlNewAccountCreated = "http://automationpractice.com/index.php?controller=my-account";
             homePage.navigate(siteUrl);
             homePage.clickSignIn();
@@ -68,8 +68,7 @@ namespace SeleniumCSharpExamples
 
         [Test]
         public void SendMessageToFail()
-        {
-            int randomNumber = new Random().Next(1000, 9999);
+        { 
             homePage.navigate(siteUrl);
             homePage.openContactUs();
             contactPage.selectSubject("Webmaster");
@@ -82,7 +81,6 @@ namespace SeleniumCSharpExamples
         [Test]
         public void SendMessageToSuccess()
         {
-            int randomNumber = new Random().Next(1000, 9999);
             homePage.navigate(siteUrl);
             homePage.openContactUs();
             contactPage.selectSubject("Webmaster");
@@ -92,7 +90,28 @@ namespace SeleniumCSharpExamples
             contactPage.sendMessage();
             Assert.AreEqual("Your message has been successfully sent to our team.", contactPage.getSuccessMessage());
         }
-       
+
+        [Test]
+        public void SubscribeToNewsletterToFail()
+        {
+            string resultSubscribe = "Newsletter : Invalid email address.";
+            homePage.navigate(siteUrl);
+            homePage.setNewsletterInput("mail" + randomNumber);
+            homePage.submitNewsletter();
+            Assert.AreEqual(homePage.getNewsletterResult("error"), resultSubscribe);
+
+        }
+
+        [Test]
+        public void SubscribeToNewsletterToSuccess()
+        {
+            string resultSubscribe = "Newsletter : You have successfully subscribed to this newsletter.";
+            homePage.navigate(siteUrl);
+            homePage.setNewsletterInput("mail" + randomNumber + "@test.br");
+            homePage.submitNewsletter();
+            Assert.AreEqual(homePage.getNewsletterResult("success"), resultSubscribe);
+        }
+
         [TearDown]
         public void TearDown()
         {

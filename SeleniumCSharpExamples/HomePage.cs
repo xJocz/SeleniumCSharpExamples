@@ -45,5 +45,27 @@ namespace SeleniumCSharpExamples
         {
             return dsl.getElement("create_account_error");
         }
+
+        public void setNewsletterInput(string email)
+        {
+            dsl.setText("newsletter-input", email);
+        }
+
+        public void submitNewsletter()
+        {
+            dsl.click("name", "submitNewsletter");
+        }
+
+        public string getNewsletterResult(string type)
+        {
+            if (type == "success")
+            {
+                return dsl.getTextByClassName("alert-success");
+            } 
+            else
+            {
+                return dsl.getTextByClassName("alert-danger");
+            }
+        }
     }
 }

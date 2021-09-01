@@ -103,6 +103,17 @@ namespace SeleniumCSharpExamples
         }
 
         [Test]
+        public void SubscribeToNewsletterRepeatedEmail()
+        {
+            string resultSubscribe = "Newsletter : This email address is already registered.";
+            string repeatedEmail = "test@test.br";
+            homePage.navigate(siteUrl);
+            homePage.setNewsletterInput(repeatedEmail);
+            homePage.submitNewsletter();
+            Assert.AreEqual(homePage.getNewsletterResult("error"), resultSubscribe);
+        }
+
+        [Test]
         public void SubscribeToNewsletterToSuccess()
         {
             string resultSubscribe = "Newsletter : You have successfully subscribed to this newsletter.";
@@ -111,6 +122,7 @@ namespace SeleniumCSharpExamples
             homePage.submitNewsletter();
             Assert.AreEqual(homePage.getNewsletterResult("success"), resultSubscribe);
         }
+
 
         [TearDown]
         public void TearDown()
